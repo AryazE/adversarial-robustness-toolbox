@@ -49,6 +49,7 @@ jobs:
           pip install tensorflow==${{ matrix.tensorflow }}
           pip install keras==${{ matrix.keras }}
           pip install tensorflow-addons==${{ matrix.tf_addons }}
+          pip install pytest-xdist pytest-timeout
           pip list
       - name: Instrument code
         uses: AryazE/auto-dylin/instrument@main
