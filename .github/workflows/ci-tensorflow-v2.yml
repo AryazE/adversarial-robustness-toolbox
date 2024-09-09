@@ -50,6 +50,13 @@ jobs:
           pip install keras==${{ matrix.keras }}
           pip install tensorflow-addons==${{ matrix.tf_addons }}
           pip list
+      - name: Instrument code
+        uses: AryazE/auto-dylin/instrument@main
+        with:
+          analysis-coverage: false
       - name: Run Tests
         run: ./run_tests.sh ${{ matrix.framework }}
+      - name: Report results
+        uses: AryazE/auto-dylin/report@main
+        
       
